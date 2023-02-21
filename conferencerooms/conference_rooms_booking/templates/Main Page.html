@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <title>Conference Rooms</title>
 </head>
 <body>
 <div style="background: #F7CAC9;
@@ -17,41 +17,19 @@
 </ul>
 </div>
 
-
+{% for room in rooms %}
   <div class="element">
-
-      <img src="images/small-conference.png" width="300" height="171" alt="small-conference" title="small-conference">
-    <p><a href="#>">SMALL CONFERENCE ROOM</a></p>
-      <ul>
+    <ul>
           <li>Active: {{ yes }} {{ no }}</li>
           <li><a href="#">Edit</a></li>
           <li><a href="#">Delete</a></li>
-      </ul>
+          <li><a href="#">Book</a></li>
+    </ul>
 
+      <img src="https://cdn.pkt.pl/f-26482-cechy-dobrej-sali-konferencyjnej.jpg" width="300" height="171" alt="medium-conference" title="medium-conference">
+        <p><a href="room/{{ id }}">{{ room.name }}</a></p>
   </div>
-  <div class="element">
-
-      <img src="images/medium-conference.png" width="300" height="171" alt="medium-conference" title="medium-conference">
-      <p><a href="#">MEDIUM CONFERENCE ROOM</a></p>
-      <ul>
-          <li>Active: {{ yes }} {{ no }}</li>
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Delete</a></li>
-      </ul>
-
-  </div>
-  <div class="element">
-
-      <img src="images/big-conference.png" width="300" height="171" alt="big-conference" title="big-conference">
-      <p><a href="#">BIG CONFERENCE ROOM</a></p>
-      <ul>
-          <li>Active: {{ yes }} {{ no }}</li>
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Delete</a></li>
-      </ul>
-
-  </div>
-</div>
+{% endfor %}
 
 </body>
 </html>
@@ -121,34 +99,31 @@
   width: 97%;
   margin: 20px;
   height: 171px;
-display: flex;
     font-family: Geneva;
+    padding: 0;
 
-
-"
 }
 .element p {
     font-family: Geneva;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
+    display: inline-flex;
+    justify-content: center;
 }
 .element li {
     border-right: 1px solid rgba(255,255,255,0.5);
-  margin: 0;
+  margin: 10px;
   display: inline-block;
-
+    float: right;
 
 }
 
 .element a {
-    display: block;
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
   padding: 10px 20px;
   font-size: 15px;
     color: #000000;
+
 }

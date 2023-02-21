@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "conference_rooms_booking",
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,7 @@ WSGI_APPLICATION = "conferencerooms.wsgi.application"
 DATABASES = {
     "default": {
         'HOST': 'localhost',
-        'NAME': 'exercises',
+        'NAME': 'conferenceroomsbooking',
         'PORT': 5432,
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
