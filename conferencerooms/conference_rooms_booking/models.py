@@ -14,6 +14,12 @@ class BookingDetails(models.Model):
     room_id = models.ForeignKey(ConferenceRoom, on_delete=models.CASCADE)
     comment = models.TextField(null=True)
 
-    class Meta:
-        unique_together = ('room_id', 'date',)
+
+
+
+
+
+
+
+
 

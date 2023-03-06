@@ -2,43 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Conference Rooms</title>
+    <title>Edit Room</title>
 </head>
 <body>
 <div style="background: #F7CAC9;
   width: 100%;
   height: 110px;">
-<form action="{% url 'search' %}" method="GET">
-    <input class="search__input" type="text" placeholder="Search" name="search">
-    <input type="submit" value="Search"/>
-    </form>
+
+    <input class="search__input" type="text" placeholder="Search">
+
 <ul class="menu">
   <li><a href="http:/all-rooms/">Main Page</a></li>
-  <li><a href="http:/room/new/">Add New Conference Room</a></li>
 </ul>
 </div>
-
-{% for room in rooms %}
-  <div class="element">
-    <img src="https://cdn.pkt.pl/f-26482-cechy-dobrej-sali-konferencyjnej.jpg" width="300" height="171" alt="medium-conference" title="medium-conference">
-
-      <p><a href="http:/room/{{ room.id }}">{{ room.name }}</a></p>
-    <ul>
-        {% if room.reserved %}
-        <li>Available: NO </li>
-        {% else %}
-        <li>Available: YES</li>
-        {% endif %}
-        <li><a href="http:/room/modify/{{ room.id }}">Edit</a></li>
-        <li><a href="http:/room/delete/{{ room.id }}">Delete</a></li>
-        <li><a href="http:/room/reserve/{{ room.id }}">Book</a></li>
-    </ul>
-
-  </div>
-{% endfor %}
-
 </body>
+<body>
+<div class="element">
+<form method="POST">
+    {% csrf_token %}
+    {{ message }}
+
+
+<ul>
+    <li>Name of the conference room: <input name="name"/></li>
+    <li>Capacity: <input name="capacity" type="number"/></li>
+    <li>Projector:<input name="projector" type="checkbox"/></li>
+    <li><input type="submit" value="Send"/></li>
+</ul>
+
+    </form>
+</div>
+</body>
+
 </html>
+
 <style>
 .search__input {
         width: 15%;
@@ -101,36 +98,18 @@
 }
 
 .element {
-    background: rgba(217,217,217,0.5199999809265137);
-  width: 97%;
-  margin: 20px;
-  height: 171px;
+    background: rgba(217, 217, 217, 0.5199999809265137);
+    width: 97%;
+    margin: 20px;
+    height: 400px;
     font-family: Geneva;
     display: flex;
     padding: 0;
-
-}
-.element p {
-    font-family: Geneva;
-    margin: 20px;
-    padding: 20px;
-    display: inline-block;
-
 }
 .element li {
-    border-right: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.5);
   margin: 10px;
   display: inline-block;
-    float: right;
-
-}
-
-.element a {
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  font-size: 15px;
-    color: #000000;
+  float: right;
 
 }
